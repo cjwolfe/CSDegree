@@ -1,0 +1,51 @@
+### Setup
+
+VS Code should have Java jdk installed
+
+Student VPN needs to be installed on linux machine
+
+#### Required extensions
+- Extension Pack for Java
+- Do not have intellicode installed due to it being depreciated and may cause errors
+- vscode-pdf -- labs may be pdf documents.
+- Remote - SSH -- allow connection to cs3667 server (+ remote-ssh and remote-ssh: editing config files and remote explorer)
+
+Optional:
+- Material theme
+- material icon theme
+
+#### Remote SSH Setup
+requires: 
+- Secure wifi or wired connection to use course vm
+- easiest way to do this is just through appstate student vpn (Unknown if this is working on linux machine)
+
+On the left-hand menu in VSCode you should see a new icon after installing Remote - SSH that looks like a computer monitor. Select it and you should see a menu like the image on the right. Hover over the SSH part of the menu and you should see two icons appear as shown in the screenshot below.
+Click on the + icon to set up a connection to a new computer. You will see a popup like the screenshot below.
+
+Type in your AppState username followed by @cs3667.cs.appstate.edu
+For example, I would type: fenwickjb@cs3667.cs.appstate.edu
+
+Hit enter and you should see a menu like the following appear.
+
+Click enter again (selecting the first option). In the remote menu click the refresh button.
+
+Expand the ssh menu and you should see the new connection in the list. Hover over it and you will see two icons appear. Click the arrow icon. VSCode will refresh and it will ask you the platform of the host. Select Linux.
+
+Yes, you want to continue.
+
+Enter your AsULearn password for the cs3667 machine. If everything goes well, you will now be connected to the cs3667 machine. It may hang, if it does, close VS Code and log in again.
+
+#### Installing Extensions Remotely
+You should now be connected to the cs3667 machine, now click the extensions icon on the left-hand menu in VSCode.
+You should see a dropdown menu which says “Local - Installed”. If the dropdown is “open” then you should see a list of the extensions you installed in step 2. Go ahead and “close” that dropdown to hide that list of extensions. 
+
+Now, you should see another dropdown become visible (it was there all along just far below the list of extensions). This dropdown is for your remote VM. To the right of that line is a “cloud download” icon. Click that and follow the prompts to install all of your local extensions (step 2) onto the remote machine.
+
+#### Navigating the remote machine
+Go here to read the instructions for navigating the cs3667 machine in the terminal. This is very important, so do not continue until you have read through that document.
+
+You should have some folders in your home directory already. You could also create them using the mkdir command (see previous document). To open a folder in VSCode, select the Open Folder option under the File dropdown
+
+You will then see a dropdown like the following image. Click on the folder that you want to open and then click ok.
+
+VSCode will reload and you will likely be prompted for your password again. You will then be able to start creating and editing files in that folder.
