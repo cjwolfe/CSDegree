@@ -181,3 +181,13 @@ A function called draw()
 - A circle class implements draw() by drawing a circle
 - A Square class implements draw() by drawing a square.
 You can call shape.draw() without knowing what kind of shape it is.
+### Encapsulation
+Bundling data and methods together to only expose a controlled public interface.
+- Protects data integrity
+- Maintainable changes
+### Information Hiding
+Information hiding makes fields private so only the programmer has access. Private/Protected keywords applicable.
+Can a B object access the data of an A object? Compute distance between two points. Both are in the same class.
+We want to write resilient classes, so hiding information is good to keep people from stumbling into breaking something.
+Package access - anything in the same pkg has access.
+
