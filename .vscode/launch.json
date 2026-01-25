@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Main",
+      "request": "launch",
+      "mainClass": "ENG.Verizon.Main",
+      "projectName": "CSDegree_84ac5098"
+    },
+    {
+      "type": "java",
       "name": "Verizon",
       "request": "launch",
       "mainClass": "ENG.Verizon",
