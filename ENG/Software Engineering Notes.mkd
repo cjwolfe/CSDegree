@@ -35,6 +35,112 @@ Yes, you want to continue.
 
 Enter your AsULearn password for the cs3667 machine. If everything goes well, you will now be connected to the cs3667 machine. It may hang, if it does, close VS Code and log in again.
 
+<<<<<<< Updated upstream
+
+##### Linux Additional Instructions
+For Linux users, the Help page above isn't too helpful. Here's some more detail that worked for me a couple semesters ago. Ultimately, the Help Desk is the best place to go.
+
+1. Download the OpenVPN zip file.
+2. Call the Help Desk (828-262-6266) and tell them you need an access code because you are needing to use the student VPN for Linux and try to get them to let you have as many logins as they can give you - like 10 at least.(Duo authentication doesn't work on Linux so it's HelpDesk that gives you the code instead of Duo.) 
+3. On Ubuntu the following steps worked for me. Hoping they do for you, and that they would work in other Linux distros.
+4. To set up the VPN connection:
+- Open the Activities overview and start typing Network.
+- Click on Network to open the panel.
+- Click the + button next to the VPN section to add a new connection.
+- Select "Import from file"
+- Choose which kind of VPN connection you have. (I selected 'ASU Student VPN.ovpn')
+- Fill in the VPN connection details, (i.e. User/Pwd) The cert's should auto populate. Then press Add once you are finished.
+- The Password is your regular AppState Shibboleth password BUT you need to append to your password a comma (,) and then the Help Desk code. All that as one string with no spaces.
+It worked for me!
+=======
+#### Gemini SSH Setup
+Setting up SSH keys on a Mac for VSCodium is a great move—it makes your connection both more secure and much more convenient by removing the need to type your password every time.
+
+Here is the step-by-step process to generate your keys, transfer them to your server, and configure VSCodium.
+
+---
+
+##### 1. Generate Your SSH Key Pair
+
+First, you need to create a "lock" (public key) and a "key" (private key) on your Mac.
+
+1. Open your **Terminal** (Cmd + Space, type "Terminal").
+2. Run the following command to generate a modern, secure ED25519 key:
+```bash
+ssh-keygen -t ed25519 -C "your_email@example.com"
+
+```
+
+
+*(If you are on a very old server that doesn't support ED25519, use `ssh-keygen -t rsa -b 4096` instead).*
+3. **Prompts:**
+* **Save location:** Press **Enter** to accept the default (`/Users/yourname/.ssh/id_ed25519`).
+* **Passphrase:** You can enter a passphrase for extra security, or just press **Enter** twice for no passphrase (this allows for a completely seamless login).
+
+
+
+---
+
+##### 2. Copy the Public Key to Your Server
+
+Now you need to tell your server to trust your Mac. The easiest way on macOS is using `ssh-copy-id`.
+
+1. Run this command in your Terminal:
+```bash
+ssh-copy-id -i ~/.ssh/id_ed25519.pub username@your-server-ip
+
+```
+
+
+2. Enter your **server password** one last time when prompted.
+3. **Test it:** Try logging in via terminal: `ssh username@your-server-ip`. If it logs you in without a password, you’re golden!
+
+---
+
+##### 3. Configure VSCodium
+
+VSCodium needs the **Remote - SSH** extension to talk to your server.
+
+1. Open VSCodium and go to the **Extensions** view (icon on the left).
+2. Search for and install **"Remote - SSH"** (usually by Microsoft).
+3. Open the **Command Palette** (Cmd + Shift + P) and type `Remote-SSH: Open SSH Configuration File...`.
+4. Select the file located at `/Users/yourname/.ssh/config`.
+5. Add your server details like this:
+```text
+Host my-server
+    HostName your-server-ip-or-domain
+    User username
+    IdentityFile ~/.ssh/id_ed25519
+
+```
+
+
+6. Save the file.
+
+---
+
+##### 4. Connect
+
+1. Click the **Remote Window** icon (a small green or blue `><` button) in the very bottom-left corner of VSCodium.
+2. Select **Connect to Host...** and choose `my-server`.
+3. VSCodium will now open a new window connected to your server. You can go to `File > Open Folder` to browse your remote files.
+
+> [!TIP]
+> **MacOS Keychain Tip:** If you used a passphrase for your key and don't want to type it in VSCodium every time, add these two lines to the top of your `~/.ssh/config` file:
+> ```text
+> Host *
+>   UseKeychain yes
+>   AddKeysToAgent yes
+> 
+> ```
+> 
+> 
+
+**Would you like me to show you how to disable password-based logins on your server now that your keys are working?**
+
+
+>>>>>>> Stashed changes
+
 #### Installing Extensions Remotely
 You should now be connected to the cs3667 machine, now click the extensions icon on the left-hand menu in VSCode.
 You should see a dropdown menu which says “Local - Installed”. If the dropdown is “open” then you should see a list of the extensions you installed in step 2. Go ahead and “close” that dropdown to hide that list of extensions. 
@@ -49,3 +155,39 @@ You should have some folders in your home directory already. You could also crea
 You will then see a dropdown like the following image. Click on the folder that you want to open and then click ok.
 
 VSCode will reload and you will likely be prompted for your password again. You will then be able to start creating and editing files in that folder.
+
+### Abstraction
+Abstraction is useful because it allows us to reuse code by taking a step back from a direct solution. Abstraction preserves relevant information and ignores irrelevant details. It manages complexity by exposing only essential information.
+1. Data Abstraction - Interacting with data through a defined interface without knowing how it's stored. ex: Lists, dictionaries, abstract data types like stacks or queues
+2. Control Abstraction - Using control structures (loops, functions) without worrying about how they're implemented. (calling a function without knowing it's internal logic)
+3. Language-level abstraction - High-level languages hide machine-level details, making code easier to write
+Useful because -
+- reduces cognitive load
+- modular and reusable code
+- easier to collaborate
+- big systems can be build safely and predictably
+
+### Polymorphism
+The ability of a single interface, function, or operation to work with different types of data.
+Polymorphism lets you write flexible, extensible, and clean code. Different classes can respond to the same method call in their own way.
+1. Subtype Polymorphism
+- A parent class reference can point to a child class object. Each child can override methods to behave differently.
+2. Parametric Polymorphism
+- A function or data structure works with any type (generics) (List<T>)
+3. Ad Hoc Polymorphism
+- Function overloading/Operator overloading. Multiple functions share the same name but differ in parameters or types
+Example:
+A function called draw()
+- A circle class implements draw() by drawing a circle
+- A Square class implements draw() by drawing a square.
+You can call shape.draw() without knowing what kind of shape it is.
+### Encapsulation
+Bundling data and methods together to only expose a controlled public interface.
+- Protects data integrity
+- Maintainable changes
+### Information Hiding
+Information hiding makes fields private so only the programmer has access. Private/Protected keywords applicable.
+Can a B object access the data of an A object? Compute distance between two points. Both are in the same class.
+We want to write resilient classes, so hiding information is good to keep people from stumbling into breaking something.
+Package access - anything in the same pkg has access.
+
