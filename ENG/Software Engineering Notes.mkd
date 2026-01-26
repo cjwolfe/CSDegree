@@ -35,7 +35,6 @@ Yes, you want to continue.
 
 Enter your AsULearn password for the cs3667 machine. If everything goes well, you will now be connected to the cs3667 machine. It may hang, if it does, close VS Code and log in again.
 
-<<<<<<< Updated upstream
 
 ##### Linux Additional Instructions
 For Linux users, the Help page above isn't too helpful. Here's some more detail that worked for me a couple semesters ago. Ultimately, the Help Desk is the best place to go.
@@ -52,7 +51,6 @@ For Linux users, the Help page above isn't too helpful. Here's some more detail 
 - Fill in the VPN connection details, (i.e. User/Pwd) The cert's should auto populate. Then press Add once you are finished.
 - The Password is your regular AppState Shibboleth password BUT you need to append to your password a comma (,) and then the Help Desk code. All that as one string with no spaces.
 It worked for me!
-=======
 #### Gemini SSH Setup
 Setting up SSH keys on a Mac for VSCodium is a great move—it makes your connection both more secure and much more convenient by removing the need to type your password every time.
 
@@ -139,7 +137,6 @@ Host my-server
 **Would you like me to show you how to disable password-based logins on your server now that your keys are working?**
 
 
->>>>>>> Stashed changes
 
 #### Installing Extensions Remotely
 You should now be connected to the cs3667 machine, now click the extensions icon on the left-hand menu in VSCode.
