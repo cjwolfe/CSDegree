@@ -5,6 +5,12 @@ public class CellPhone {
     private boolean connected = false;
     private String number = "1234567890";
     private CellTower tower;
+
+    public CellPhone(){
+        this.setNumber("999");
+        this.connected = false;
+    }
+
     public void connect(CellTower tower){
         if(tower.avail()){
             this.tower = tower;

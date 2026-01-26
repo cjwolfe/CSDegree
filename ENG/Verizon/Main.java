@@ -1,5 +1,9 @@
 package ENG.Verizon;
 
+/**
+ * @author cwolfe
+ */
+
 public class Main{
 
     public static CellTower tower = new CellTower();
@@ -15,7 +19,7 @@ public class Main{
         StringBuilder sb = new StringBuilder();
         sb.append("\nSTATUS REPORT: ");
         sb.append("\nStatus of phone: ");
-        sb.append(phone.toString());
+        sb.append(tower.activePhone.toString());
 
         sb.append("\nStatus of Tower: ");
         sb.append(tower.toString() + "\n");
@@ -30,18 +34,25 @@ public class Main{
 
         System.out.println("Connecting Phone");
 
-        tower.search();
+        // tower.search();
         phone.connect(tower);
 
-        System.out.println("Disconnecting Phone");
+        // System.out.println("Disconnecting Phone");
 
-        tower.disconnectPhone();
+        // tower.disconnectPhone();
 
-        System.out.println(status());
 
         System.out.println("Change phone number");
         tower.setPhoneNumber("01189998819991197253");
         
+
+
+        tower.setPhoneNumber("8675309");
+
+
+        System.out.println(status());
+
+
         
     }
 }
