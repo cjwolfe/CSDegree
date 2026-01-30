@@ -14,6 +14,8 @@ public class CellPhone {
     public void connect(CellTower tower){
         if(tower.avail()){
             this.tower = tower;
+            this.connected = true;
+            tower.connectPhone(this);
             if(this.tower.equals(tower)){
                 connected = true;
                 System.out.println("Cell phone " + number + " is connected to " + tower.towerID);

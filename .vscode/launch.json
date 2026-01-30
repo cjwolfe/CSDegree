@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Sprint",
+      "request": "launch",
+      "mainClass": "ENG.Sprint.Sprint",
+      "projectName": "CSDegree_84ac5098"
+    },
+    {
+      "type": "java",
       "name": "Main",
       "request": "launch",
       "mainClass": "ENG.Verizon.Main",

@@ -2,23 +2,17 @@ package ENG.Sprint;
 
 public class CellTower {
     String towerID = "T-1000";
-    boolean available = false;
+    // boolean available = true;
 
-    CellPhone activePhone = new CellPhone();
+    CellPhone activePhone = null;
 
-    CellPhone[] phoneList = new CellPhone[10];
-    int numPhones = 0;
-
-    // public void search(){
-    //     if(!avail()){
-    //         available = true;
-    //     }
-    // }
+ 
 
     public boolean connectPhone(CellPhone phone){
         if(avail()){
             this.activePhone = phone;
-            activePhone.connect(this);
+            // this.available = false;
+            // activePhone.connect(this);
             System.out.println("Connected to " + activePhone.getNumber());
             return true;
             // phoneList[numPhones] = phone;
@@ -45,7 +39,7 @@ public class CellTower {
 
     public void status(){
 
-        System.out.println("Tower " + towerID + " is " + (available ? "available": "busy"));
+        System.out.println("Tower " + towerID + " is " + (avail() ? "available": "busy"));
     }
 
     public void setPhoneNumber(String number){
@@ -59,7 +53,7 @@ public class CellTower {
 
     public String toString(){
         StringBuilder sb = new StringBuilder();
-        sb.append("Tower " + towerID + " is " + (available ? "available": "busy"));
+        sb.append("Tower " + towerID + " is " + (avail() ? "available": "busy"));
 
         sb.append("\nTower ID: " + this.towerID);
 
