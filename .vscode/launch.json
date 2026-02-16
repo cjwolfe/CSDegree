@@ -3,6 +3,34 @@
   "configurations": [
     {
       "type": "java",
+      "name": "FlexLauncherEditor",
+      "request": "launch",
+      "mainClass": "Admin.FlexLauncherEditor",
+      "projectName": "CSDegree_84ac5098"
+    },
+    {
+      "type": "java",
+      "name": "FlexConfigEnhanced",
+      "request": "launch",
+      "mainClass": "Admin.FlexConfigEnhanced",
+      "projectName": "CSDegree_84ac5098"
+    },
+    {
+      "type": "java",
+      "name": "FlexConfigManager",
+      "request": "launch",
+      "mainClass": "Admin.FlexConfigManager",
+      "projectName": "CSDegree_84ac5098"
+    },
+    {
+      "type": "java",
+      "name": "ControlPanelExample",
+      "request": "launch",
+      "mainClass": "Admin.ControlPanelExample",
+      "projectName": "CSDegree_84ac5098"
+    },
+    {
+      "type": "java",
       "name": "Sprint",
       "request": "launch",
       "mainClass": "ENG.Sprint.Sprint",
