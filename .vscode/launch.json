@@ -3,6 +3,20 @@
   "configurations": [
     {
       "type": "java",
+      "name": "MolecularMass",
+      "request": "launch",
+      "mainClass": "student.MolecularMass",
+      "projectName": "CSDegree_5b6b8223"
+    },
+    {
+      "type": "java",
+      "name": "IntStackDriver",
+      "request": "launch",
+      "mainClass": "student.IntStackDriver",
+      "projectName": "CSDegree_5b6b8223"
+    },
+    {
+      "type": "java",
       "name": "FlexLauncherEditor",
       "request": "launch",
       "mainClass": "Admin.FlexLauncherEditor",

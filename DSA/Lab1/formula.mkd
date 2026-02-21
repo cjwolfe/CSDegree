@@ -1,0 +1,47 @@
+The problem of handling parenthesis statements in Java typically involves two common scenarios: validating the balance and order of parentheses, and evaluating mathematical expressions contained within them. [1, 2]  
+Validating Parentheses 
+The most common approach for validating if a string of parentheses is balanced and properly nested is to use a  data structure. 
+
+• Logic: Iterate through the string character by character. 
+
+	• If you encounter an opening bracket (, , ), push its corresponding closing bracket onto the stack. 
+	• If you encounter a closing bracket (, , ), check if the stack is empty or if the top of the stack does not match the current character. If either is true, the string is invalid. If it matches, pop the top element from the stack. 
+	• After iterating through the entire string, if the stack is empty, the parentheses are valid and balanced; otherwise, they are not. [3, 5, 6, 7, 8]  
+
+This approach ensures that every closing bracket corresponds to the most recently opened bracket of the same type. [9]  
+Calculating Parentheses Statements 
+To evaluate a mathematical expression that includes parentheses, you can use two stacks: one for numbers (operands) and one for operators. This is a more complex problem often involving Shunting-Yard algorithm principles. 
+
+• Logic: 
+
+	1. Iterate through the expression string. 
+	2. Numbers are pushed onto the number stack. 
+	3. Operators (, , , ) are pushed onto the operator stack after applying any pending operations with higher or equal precedence. 
+	4. An opening parenthesis () is pushed onto the operator stack. 
+	5. A closing parenthesis () triggers the calculation of expressions within the most recent pair of parentheses by repeatedly popping operators and numbers until the corresponding opening parenthesis is found and popped. 
+	6. The final result is obtained by performing any remaining operations in the stacks. [15, 16, 17, 18, 19]  
+
+This problem is a classic example of using stacks for arithmetic expression evaluation. [15]  
+
+AI responses may include mistakes.
+
+[1] https://vocal.media/education/coding-valid-parentheses-checker-in-java-script
+[2] https://dev.to/paulike/evaluating-expressions-and-operator-precedence-7a7
+[3] https://dev.to/simronhetmayer/java-program-to-check-if-parentheses-are-properly-nested-a-comprehensive-guide-2m4a
+[4] https://dev.to/codeswithpankaj/question-validate-parentheses-in-a-string-2clg
+[5] https://www.linkedin.com/pulse/mastering-valid-parentheses-problem-java-aditya-gupta-lrnmc
+[6] https://www.geeksforgeeks.org/dsa/check-for-balanced-parentheses-in-an-expression/
+[7] https://algo.monster/liteproblems/20
+[8] https://www.tryexponent.com/questions/4214/balance-parentheses-minimum-removals
+[9] https://codesignal.com/learn/courses/advanced-data-structures-stacks-and-queues-in-java/lessons/mastering-stack-operations-in-java-validating-parentheses-and-reversing-strings
+[10] https://mathcenter.oxford.emory.edu/site/cs171/probSetUsingStacks/
+[11] https://www.andrew.cmu.edu/course/15-111-kesden/su05/applications/ln/lecture9.older.html
+[12] https://tomekkorbak.com/2020/03/25/implementing-shunting-yard-parsing/
+[13] https://www.giorgi.dev/net-framework/building-expression-evaluator-with-expression-trees-in-csharp-part-2/
+[14] https://bugfree.dk/blog/2015/08/14/parsing-mathematical-expressions-with-shunting-yard-fsharp-and-csharp
+[15] https://stackoverflow.com/questions/23485768/java-calculator-crashing-with-input-of-parentheses
+[16] https://www.tryexponent.com/questions/4214/balance-parentheses-minimum-removals
+[17] https://www.upgrad.com/tutorials/software-engineering/c-tutorial/evaluation-of-arithmetic-expression/
+[18] https://dev.to/abolfazlimahdi/algorithms-part-1-bags-queues-and-stacks-2fdp
+[19] https://www.cloudbees.com/blog/build-math-evaluation-engine
+
