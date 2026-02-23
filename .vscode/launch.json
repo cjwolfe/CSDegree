@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "FlexLauncherEditor",
+      "request": "launch",
+      "mainClass": "Admin.FlexLauncherEditor",
+      "projectName": "CSDegree_5b6b8223"
+    },
+    {
+      "type": "java",
       "name": "MolecularMass",
       "request": "launch",
       "mainClass": "student.MolecularMass",
