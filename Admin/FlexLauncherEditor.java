@@ -47,6 +47,13 @@ public class FlexLauncherEditor extends JFrame {
         setLocationRelativeTo(null);
     }
 
+    private JPanel createMiscTab(){
+        JPanel p = new JPanel(new GridLayout(0,2,10,5));
+        
+
+        return wrapInPanel(p);
+    }
+
     private JPanel createGeneralTab() {
         JPanel p = new JPanel(new GridLayout(0, 2, 10, 5));
         p.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
