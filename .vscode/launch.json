@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "SpellChecker",
+      "request": "launch",
+      "mainClass": "student.SpellChecker",
+      "projectName": "CSDegree_5b6b8223"
+    },
+    {
+      "type": "java",
       "name": "FlexLauncherEditor",
       "request": "launch",
       "mainClass": "Admin.FlexLauncherEditor",

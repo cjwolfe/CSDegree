@@ -7,13 +7,14 @@ import java.io.*;
 
 public class SpellChecker
 {
-	private static final String DICT_FILE = "dictionary.txt";
+	private static final String DICT_FILE = "DSA/Lab3/data/dictionary.txt";
 	private StringSet words;
 	
 	public SpellChecker()
 	{
 		words = new StringSet();
 		File f = new File(DICT_FILE);
+		System.out.println("/n" + f.getAbsolutePath());
 		Scanner scanner = null;
 		try
 		{
