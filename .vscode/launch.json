@@ -3,6 +3,20 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Closest",
+      "request": "launch",
+      "mainClass": "student.Closest",
+      "projectName": "CSDegree_5b6b8223"
+    },
+    {
+      "type": "java",
+      "name": "Testing",
+      "request": "launch",
+      "mainClass": "student.Testing",
+      "projectName": "CSDegree_5b6b8223"
+    },
+    {
+      "type": "java",
       "name": "SpellChecker",
       "request": "launch",
       "mainClass": "student.SpellChecker",
