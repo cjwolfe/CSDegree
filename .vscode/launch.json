@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Trique",
+      "request": "launch",
+      "mainClass": "DSA.Midterm.student.Trique",
+      "projectName": "CSDegree_a2475a1"
+    },
+    {
+      "type": "java",
       "name": "MidtermDriver",
       "request": "launch",
       "mainClass": "DSA.Midterm.student.MidtermDriver",

@@ -1,5 +1,5 @@
-package DSA.Midterm.student;
-// package student;
+// package DSA.Midterm.student;
+package student;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -35,9 +35,6 @@ public class Jigsaw {
 
 		throw new IOException(filename + " not found");
 
-
-
-		// return -1;
 	}
 
 	/**

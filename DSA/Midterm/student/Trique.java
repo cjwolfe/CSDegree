@@ -1,79 +1,140 @@
-package DSA.Midterm.student;
-// package student;
+// package DSA.Midterm.student;
+package student;
 
 public class Trique
 {
 
-	private int size;
-	public Node fr;
+	private int size = 0;
 	public Node mid;
-	public Node butt;
 
 	public Trique()
 	{
-		// set up a queue where the mid and front and back are set up
-
-		fr.next = mid;
-		mid.next = butt;
-		size = 3;
-		// fr -> mid -> butt -> null;
-		// size = 3, so mid = 2;
-
-
-		// private int mid = ;
-
+		// using a bst so no need for some boilerplate setup
 	}
 	
 	public void push_back(int x)
 	{
-		Node newNode = new Node(x);
-		newNode.next = butt;
-
+		mid = insert(mid, this.size, x);
+		this.size++;
 	}
 
 	public void push_front(int x)
 	{
-		Node newNode = new Node(x);
-		Node temp = fr.next;
-		fr.next = newNode;
-		newNode.next = temp;
+		mid = insert(mid, 0, x);
+		this.size++;		
 	}
 
 	public void push_mid(int x)
 	{
-		
+		mid = insert(mid, (this.size+1) / 2, x);
+		this.size++;
+
 	}
 
 	public int get(int i)
 	{
-		if(size<i){return -1;}
-		Node current = fr;
-		int count = 0;
-		while(current != null){
-			
-			if(count == i){
-				return current.data;
-			}
-			current = current.next;
-			count++;
-
-
-		}
+		if (i < 0 || i >= size) throw new IndexOutOfBoundsException();
+		return find(mid, i).data;
 		
-		return -2;
+    }
+
+	private Node insert(Node node, int index, int x){
+		if (node == null) return new Node(x);
+
+		int leftSize = getSize(node.left);
+
+		if(index <= leftSize){
+			node.left = insert(node.left, index, x);
+		} else{
+			node.right = insert(node.right, index - leftSize - 1, x);
+		}
+
+		updateNode(node);
+		return balance(node);
+		// node.size = 1 + getSize(node.left) + getSize(node.right);
+		// return node;
 	}
 
-	
+	private Node find(Node node, int index){
+		int leftSize = getSize(node.left);
+		if (index < leftSize) return find(node.left, index);
+		if (index == leftSize) return node;
+		return find(node.right, index - leftSize - 1);
+	}
 
-	private Node[] q;
+	private Node balance(Node n){
+		// if(n == null) return null;
+
+		int bf = getBalanceFactor(n);
+
+		//left
+		if(bf > 1){
+			if(getBalanceFactor(n.left) < 0){
+				n.left = rotateLeft(n.left);
+			}
+			return rotateRight(n);
+		}
+		// right
+		if(bf < -1){
+			if(getBalanceFactor(n.right) > 0){
+				n.right = rotateRight(n.right);
+			}
+			return rotateLeft(n);
+		}
+		return n;
+	}
+	
+	private Node rotateRight(Node y){
+		Node x = y.left;
+		Node T2 = x.right;
+		
+		x.right = y;
+		y.left = T2;
+
+		updateNode(y);
+		updateNode(x);
+		return x;
+	}
+	private Node rotateLeft(Node x) {
+		Node y = x.right;
+		Node T2 = y.left;
+
+		y.left = x;
+		x.right = T2;
+
+		updateNode(x);
+		updateNode(y);
+		return y;
+	}
+
+	private void updateNode(Node n){
+		if(n != null){
+			n.height = 1 + Math.max(getHeight(n.left),getHeight(n.right));
+			n.size = 1 + getSize(n.left) + getSize(n.right);
+		}
+	}
+	private int getBalanceFactor(Node n){
+		return (n == null) ? 0 : getHeight(n.left) - getHeight(n.right);
+	}
+
+	private int getHeight(Node n){ return (n == null) ? 0 : n.height; }
+
+	private int getSize(Node n) { return n == null ? 0 : n.size; }	
+
 	private static class Node{
 		int data;
-		Node next;
+		int size;
+		int height;
+		Node right;
+		Node left;
 		public Node(int data){
 			this.data = data;
-			this.next = null;
+			this.size = 1;
+			this.height = 1;
+			this.left = this.right = null;
 		}
 	}
+
 
 	public static void main(String[] args)
 	{
