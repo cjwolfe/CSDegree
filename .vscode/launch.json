@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "MidtermDriver",
+      "request": "launch",
+      "mainClass": "DSA.Midterm.student.MidtermDriver",
+      "projectName": "CSDegree_84ac5098"
+    },
+    {
+      "type": "java",
       "name": "Closest",
       "request": "launch",
       "mainClass": "student.Closest",
