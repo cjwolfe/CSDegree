@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "RunwayReservation",
+      "request": "launch",
+      "mainClass": "student.RunwayReservation",
+      "projectName": "CSDegree_5b6b8223"
+    },
+    {
+      "type": "java",
       "name": "Trique",
       "request": "launch",
       "mainClass": "DSA.Midterm.student.Trique",

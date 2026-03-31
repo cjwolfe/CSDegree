@@ -1,6 +1,9 @@
 package student;
 
 import java.util.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class RunwayReservation
 {
@@ -33,7 +36,12 @@ public class RunwayReservation
 	private static void runFile(String filename)
 		throws IOException
 	{
+		// File fine = new File(filename);
+		// System.out.println("File exists?" + fine.exists());
+
 		Scanner file = new Scanner(new File(filename));
+	
+		
 		int n = file.nextInt(); // The total number of requests.
 		int k = file.nextInt(); // Grace time between requests.
 
@@ -64,7 +72,7 @@ public class RunwayReservation
 
 	public static void main(String[] args)
 		throws IOException
-	{
+	{		
 		runFile(args[0]);
 	}
 }
