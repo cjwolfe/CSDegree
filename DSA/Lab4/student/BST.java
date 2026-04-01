@@ -30,6 +30,29 @@ public class BST
 		return root;
 	}
 
+	public boolean exists(int key){
+		Node result = find(root,key);
+		return result != null;
+		// return find(root, key).flight.time == key;
+	}
+
+	public Node find(Node root, int key){
+		if (root == null || root.flight.time == key){
+			return root;
+		}
+
+		if(key < root.flight.time){
+			//
+			return find(root.left, key);
+		} else{
+			//
+			return find(root.right, key);
+		}
+		// return root;
+
+
+	}
+
 	public Node pred(int time)
 	{
 		return findPredecessor(root,time);
@@ -138,11 +161,13 @@ public class BST
 
 	public void print(Node root) {
 		if (root == null) return;
-		printInOrder(node.left);
-		System.out.print(node.flight.time + " ");
-		printInOrder(node.right);
+		print(root.left);
+		System.out.print(root.flight.time + " ");
+		print(root.right);
 	}
 
-
+	public Node getRoot(){
+		return root;
+	}
 
 }

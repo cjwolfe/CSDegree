@@ -12,14 +12,25 @@ public class BSTDriver {
     for (int t : times) {
         tree.insert(new Flight(t, "FN" + t, "123", "AVL", "CLT"));
     }
+    System.out.println("printing... ");
+    tree.print(tree.getRoot());
+    System.out.println("");
 
     // 2. Verify Min/Max initially
     System.out.println("Initial Min (Expected 20): " + tree.min().flight.time);
     System.out.println("Initial Max (Expected 80): " + tree.max().flight.time);
 
+    System.out.println("Does 30 exist? " + tree.exists(30));
+
     // 3. Test Deletion of node with TWO children (Case 3)
     System.out.println("\nDeleting 30 (two children)...");
     tree.delete(30);
+
+    System.out.println("printing... ");
+    tree.print(tree.getRoot());
+    System.out.println("");
+
+    System.out.println("Does 30 exist? " + tree.exists(30));
     
     // If your successor logic is correct, the new "min" of that subtree 
     // or the node itself should be replaced correctly.
@@ -30,11 +41,19 @@ public class BSTDriver {
     System.out.println("\nDeleting Root (50)...");
     tree.delete(50);
 
+    System.out.println("printing... ");
+    tree.print(tree.getRoot());
+    System.out.println("");
+
     System.out.println("Current Min (Expected ??): " + tree.min().flight.time);
     System.out.println("Current Max (Expected ??): " + tree.max().flight.time);
     // 5. Test Deleting something that doesn't exist
     System.out.println("\nDeleting 999 (non-existent)...");
     tree.delete(999);
+
+    System.out.println("printing... ");
+    tree.print(tree.getRoot());
+    System.out.println("");
 
     }
 }
