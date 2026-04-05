@@ -8,6 +8,8 @@ int countDivisible(int *, int, int);
 double sumFractions(double *, int);
 int countAbsoluteRangeValues(double *, int, double);
 void test1();
+
+
 int main()
 {
 test1();
@@ -50,3 +52,13 @@ double myArray[] = {2.11,3.2,0.6,1.3,2.5,5.11,6.25,6.0,5.2,4.2};
  printf("In function countAbsoluteRangeValues your output is %d\n", iv);
  if (iv != 5) printf("FAIL in countAbsoluteRangeValues(). Expected 5.\n");
 }
+
+double findCloseToZero (double myArray[], int numItems){
+    return -1.0;
+    // return myArray[];
+
+}
+double findFarFromZero(double *arr, int size) { return 0.0; }
+int countDivisible(int *arr, int size, int divisor) { return 0; }
+double sumFractions(double *arr, int size) { return 0.0; }
+int countAbsoluteRangeValues(double *arr, int size, double range) { return 0; }
