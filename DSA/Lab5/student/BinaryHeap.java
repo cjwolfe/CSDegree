@@ -2,15 +2,51 @@ package student;
 
 public class BinaryHeap
 {
+	private int capacity;
+	private int size;
+	private int[] heapArray;
+	
 	public BinaryHeap()
 	{
+		new BinaryHeap(100);
+	}
+
+	public BinaryHeap(int n){
+		capacity = n;
+		heapArray = new int[capacity];
+		size = 0;
 	}
 
 	public void insert(int k)
 	{
+
 		// TODO: insert into the binary heap
 		// insert at the last location, increment size, and sift-up
 		// might require a resize if heap is full
+
+		if(size == capacity){
+			//enbiggen
+			System.arraycopy(heapArray, k, heapArray, k, k);
+		}
+
+		int i = size;
+
+		heapArray[i] = k;
+		size++;
+
+		if(size > 1){
+
+
+		// ??
+		while(i != 0 && heapArray[i] < heapArray[i - 1]){
+			int temp = heapArray[i - 1];
+			heapArray[i-1] = heapArray[i];
+			heapArray[i] = temp;
+
+
+			// swap(heapArray,i, parent(i));
+		}
+				}
 	}
 
 	public int remove_min()
@@ -28,7 +64,7 @@ public class BinaryHeap
 
 	public int size()
 	{
-		return -1;
+		return this.size;
 	}
 
 	private void sift_up(int i)
@@ -38,4 +74,6 @@ public class BinaryHeap
 	private void sift_down(int i)
 	{
 	}
+
+	
 }

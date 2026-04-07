@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "HeapDriver",
+      "request": "launch",
+      "mainClass": "student.HeapDriver",
+      "projectName": "CSDegree_84ac5098"
+    },
+    {
+      "type": "java",
       "name": "RunwayReservation",
       "request": "launch",
       "mainClass": "student.RunwayReservation",

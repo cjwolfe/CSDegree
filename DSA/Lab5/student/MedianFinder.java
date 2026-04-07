@@ -7,6 +7,7 @@ public class MedianFinder
 {
 	public MedianFinder()
 	{
+		
 	}
 
 	public void insert(int v)
