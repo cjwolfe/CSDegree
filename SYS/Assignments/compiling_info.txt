@@ -1,0 +1,5 @@
+g++ arrays.cc -o arrays
+for c++
+
+gcc arrays.c -o arrays
+for c
