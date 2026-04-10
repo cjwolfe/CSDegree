@@ -11,18 +11,21 @@ public class HeapDriver {
 
     StringBuilder sb = new StringBuilder();
         try{
-            File f = new File("test-01-input.txt");
+            File f = new File("test-04-input.txt");
             if(!f.exists()){
                 throw new Exception(f.getAbsolutePath() + "file not found");
             }
             Scanner s = new Scanner(f);
             while (s.hasNext()){
+
                 sb.append(s.next());
 
                 if(sb.charAt(0) == 'i'){
                     bh.insert(s.nextInt());
                 } else if (sb.charAt(0) == 'q'){
-                    System.out.println(bh.remove_min());
+                    bh.remove_min();
+
+                    // System.out.println(bh.remove_min());
                 }
                 // should print out everything
                 // System.out.print(sb.toString());
@@ -33,6 +36,8 @@ public class HeapDriver {
 
             }
 
+            System.out.println(bh.print());
+
 
         } catch (Exception e){
             System.out.println("Failed. Exiting " + e);
@@ -41,6 +46,8 @@ public class HeapDriver {
 
 
     }
+
+
 
     
     
