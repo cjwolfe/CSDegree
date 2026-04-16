@@ -7,6 +7,8 @@ public class NQueens
 		return -1;
 	}
 
+
+
 	public static void main(String[] args)
 	{
 		int N = 14;
