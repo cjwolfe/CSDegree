@@ -5,76 +5,45 @@ import java.util.HashMap;
 
 public class Collatz
 {
-	public static HashMap<Long, Long> map;
-	private static long length;
+	public static HashMap<Long, Long> map = new HashMap();
 	public static int collatzLength(long x)
 	{
 		// if an existing length has been computed, find it
-
-
 		if(map.containsKey(x)){
 			return map.get(x).intValue();
 		}
+		// base case
+		if (x == 1){
+			return 1;
+		}
 
-		// this is a new item, compute the collatz length
-		// long length = 0;
-		long key = 0;
-		// while(key != 1){
+		long next = (x % 2 == 0) ? (x / 2) : (x * 3 + 1);
+		int len = 1 + collatzLength(next);
+
+		map.put(x, (long) len);
 		
-		key = (long) collatz(x);
-		// }
-		if(key == 1){
-			// it puts the key in the basket
-			map.put(x, length);
-		}
-
-
-
-		// cleanup tracker
-		length = 0;
-		return map.get(x).intValue();
+		return len;
 	}
 
-	public static int collatz(long n){
-		if(n == 1){
-			length++;
-			return (int) n;
-		}
-		if(n % 2 == 0){
-			length++;
-			return collatz(n/2);
-		} else {
-			long ret = 3 * (n) + 1;
-			length++;
-			return collatz(ret);
-		}
-	}
 
 	public static long longestInRange(long a, long b)
 	{
-		// compute range first
-		// would be more efficient to check for longest values now 
-		// but let's get it working first
-		if(a < b){
-			for(long i = a; i < b; i++){
-				// long temp = collatzLength(i);
-				map.put(i,(long)collatzLength(i));
-			}
-		} else if(a > b){
-			for(long i = b; i < a; i++){
-				map.put(i,(long)collatzLength(i));
-			}
-		} else {
-			return (long) collatzLength(a);
-		}
 
-		long max = map.getOrDefault(a, null);
-		int i = (int) a;
-		for(; i < b; i++){
-			max = Math.max(map.getOrDefault(i,null),map.getOrDefault(a,null));
 
+		long start = Math.min(a,b);
+		long end = Math.max(a,b);
+
+		long maxLength = 0;
+		long ans = start;
+
+		for(long i = start; i <= end; i++){
+			int currLength = collatzLength(i);
+			if(currLength > maxLength){
+				maxLength = currLength;
+				ans = i;
+			}
 		}
-		return max;
+		return ans;
 		// return -1;
 	}
 	
@@ -89,5 +58,22 @@ public class Collatz
 		int n = collatzLength(best);
 		System.out.printf("The number with the greatest Collatz length in this range: %d\n", best);
 		System.out.printf("The Collatz length of %d is %d\n", best, n);
+
+		// testing
+		// long lastlargest = 100;
+		// for(long i = 100; i > 2; i = lastlargest){
+		// 	long a = 1;
+		// 	long b = lastlargest;
+
+		// 	long best = longestInRange(a,b);
+		// 	int n = collatzLength(best);
+		// 	lastlargest = best -1;
+
+		// 	System.out.printf("The number with the greatest Collatz Length in this range: %d\n", best);
+		// 	System.out.printf("The Collatz length of %d is %d\n", best, n);
+
+		// }
+
+
 	}
 }
