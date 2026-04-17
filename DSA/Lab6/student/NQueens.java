@@ -13,38 +13,36 @@ public class NQueens
 		int[] results = {0,1,0,0,2,10,4,40,92,352,724,2680,14200};
 		if(tested && N < 13){return results[N];}
 
-		// boolean[][] board = new boolean[N][N];
-		// base case
-		// if(isValid(board)){
+		boolean[] board = new boolean[N * N];
 
-		// }
+		int row = 0;
+		for(int i = 0; i< board.length; i++){
+			while(row < N){
+				board[i] = true;
 
-		// call private method
-		// int ans = N;
+			}
+		}
 		
 
 		return -1;
 	}
 
-	// private static boolean isValid(int size){
+	public void solve(boolean[] board, int size, int currentPos){
+		if(currentPos == board.length) return;
+
+		board[currentPos] = true;
+
+		solve(board,size, currentPos+1);
+
+		board[currentPos] = false;
+	}
+
+	private static boolean isValid(int x ,int y){
 		
-		
-	// 	for(int i = 0; i < size; i++){
-			
-	// 		if(map.containsKey(i) && map.containsValue(i)) return true;	
 
 
-	// 	}
-		
-
-
-	// 	return null;
-	// };
-
-	// private static boolean[][] addQueen(boolean[][] b, int numQueens){
-
-	// 	return b;
-	// }
+		return false;
+	}
 
 
 	public static void main(String[] args)
@@ -70,6 +68,13 @@ row 0 : 1
 row 1 : 3
 row 2 : 0
 row 3 : 2
+
+[0][1][0][0]
+[0][0][0][1]
+[1][0][0][0]
+[0][0][1][0]
+
+
 
 (no two unique digits) - one solution
 (each digit is  )
