@@ -14,6 +14,7 @@ public class Jugs
 		visited = new boolean[MAX_VALUE][MAX_VALUE];
 		// TODO: call a private method here to
 		// generate a solution string and return it
+		return null;
 	}
 
 	public static void main(String[] args)
