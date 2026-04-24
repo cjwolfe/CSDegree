@@ -1,0 +1,35 @@
+Depth-first search (DFS)
+There are various ways to traverse (visit all the nodes) of a graph systematically. A couple of these ways (depth-first and breadth-first) give us some information about graph structure (e.g. connectedness).
+
+In depth-first search the idea is to travel as deep as possible from neighbour to neighbour before backtracking. What determines how deep is possible is that you must follow edges, and you don't visit any vertex twice.
+
+To do this properly we need to keep track of which vertices have already been visited, plus how we got to (the path to...) where we currently are, so that we can backtrack. We could keep track of which nodes were visited in a boolean array, and a stack to push nodes onto that we mean to visit (the course Readings have a recursive algorithm for DFS which takes a slightly different approach). Here's some pseudocode:
+
+      DFS(G,v)   ( v is the vertex where the search starts )
+         Stack S := {};   ( start with an empty stack )
+         for each vertex u, set visited[u] := false;
+         push S, v;
+         while (S is not empty) do
+            u := pop S;
+            if (not visited[u]) then
+               visited[u] := true;
+               for each unvisited neighbour w of u
+                  push S, w;
+            end if
+         end while
+      END DFS()
+It would probably be useful to keep track of the edges we used to visit the vertices, since these edges would span the vertices visited. One way to do this is with another array predecessor[u] which indicates which vertex $ u$ was reached from. When we are processing the neighbours of, say, vertex $ u$, for each neighbour (say $ v$) of $ u$ that we push onto the stack, we set predecessor[v] to $ u$. Eventually we end up with a tree: an acyclic, connected graph of all the vertices that can be reached from our starting point.
+What happens if our original graph $ G$ isn't connected? Then DFS(G,v) won't visit any vertices that aren't connected to its starting point. You'll need an outer loop that iterates over unvisited vertices, and then calls DFS(G,V).
+
+The end result is a forest (a collection of trees) representing the connected components of $ G$.
+
+
+
+BFS
+
+Breadth-first search
+Breadth-first search means we visit all of vertex $ v$'s neighbours before we visit the neighbours' neighbours. 
+One way to achieve this is to add all of $ v$'s neighbours to a queue, and then visit each element of the queue
+(adding that element's neighbours to the tail of the queue) in FIFO order. 
+There is pseudocode for this algorithm in the Course readings that numbers each vertex with a unique number 
+according to when it is visited (as does the Readings' DFS algorithm).
