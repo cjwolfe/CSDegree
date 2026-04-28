@@ -30,7 +30,7 @@ public class FlexLauncherEditor extends JFrame {
 
         sidebarList = new JList<>(menuListModel);
         sidebarList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        sidebarList.setPreferredSize(new Dimension(240, 0));
+        sidebarList.setPreferredSize(new Dimension(200, 0));
         sidebarList.setBorder(BorderFactory.createEtchedBorder());
 
         cardLayout = new CardLayout();
@@ -46,7 +46,6 @@ public class FlexLauncherEditor extends JFrame {
 
         JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, new JScrollPane(sidebarList), contentPanel);
         add(splitPane, BorderLayout.CENTER);
-        splitPane.setDividerLocation(240); // Matches the new sidebar width
 
         JPanel footer = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         JButton saveBtn = new JButton("Save Configuration");
@@ -54,18 +53,22 @@ public class FlexLauncherEditor extends JFrame {
         footer.add(saveBtn);
         add(footer, BorderLayout.SOUTH);
 
-        setSize(1100, 750);
+        setSize(1000, 750);
         setLocationRelativeTo(null);
-        if (menuListModel.getSize() > 0) sidebarList.setSelectedIndex(0);
+        sidebarList.setSelectedIndex(0);
     }
 
     private void setupAllMenus() {
         contentPanel.add(createGeneralPanel(), "General");
         contentPanel.add(createVisualsPanel(), "Background");
 
-        contentPanel.add(createSimpleTab("Layout", new String[][]{{"MaxButtons", "Integer"}, {"IconSize", "Integer"}, {"IconSpacing", "String"}, {"VCenter", "String"}}), "Layout");
-        contentPanel.add(createSimpleTab("Titles", new String[][]{{"Enabled", "Boolean"}, {"Font", "String"}, {"FontSize", "Integer"}, {"Color", "String"}, {"Opacity", "String"}}), "Titles");
-        contentPanel.add(createSimpleTab("Highlight", new String[][]{{"Enabled", "Boolean"}, {"FillColor", "String"}, {"FillOpacity", "String"}, {"OutlineSize", "Integer"}}), "Highlight");
+        String[][] layouts = {{"MaxButtons", "Integer"}, {"IconSize", "Integer"}, {"IconSpacing", "String"}, {"VCenter", "String"}};
+        contentPanel.add(createSimpleTab("Layout", layouts), "Layout");
+
+        String[][] titles = {{"Enabled", "Boolean"}, {"Font", "String"}, {"FontSize", "Integer"}, {"Color", "String"}, {"Opacity", "String"}};
+        contentPanel.add(createSimpleTab("Titles", titles), "Titles");
+
+        contentPanel.add(createSimpleTab("Highlight", new String[][]{{"FillColor", "String"}, {"FillOpacity", "String"}, {"OutlineSize", "Integer"}}), "Highlight");
         contentPanel.add(createSimpleTab("Scroll Indicators", new String[][]{{"Enabled", "Boolean"}, {"FillColor", "String"}}), "Scroll Indicators");
         contentPanel.add(createSimpleTab("Clock", new String[][]{{"Enabled", "Boolean"}, {"ShowDate", "Boolean"}, {"FontSize", "Integer"}}), "Clock");
         contentPanel.add(createSimpleTab("Screensaver", new String[][]{{"Enabled", "Boolean"}, {"IdleTime", "Integer"}}), "Screensaver");
@@ -241,23 +244,9 @@ public class FlexLauncherEditor extends JFrame {
     private void addSetting(JPanel p, String k, String t) {
         p.add(new JLabel(k + ":"));
         String v = generalSettings.getOrDefault(k, "");
-        JComponent c;
-        if (t.equals("Boolean")) {
-            c = new JCheckBox("", v.equalsIgnoreCase("true"));
-        } else if (t.equals("Integer")) {
-            try {
-                // Only use a Spinner if the value is a clean integer
-                int parsed = Integer.parseInt(v.replaceAll("[^0-9-]", ""));
-                c = new JSpinner(new SpinnerNumberModel(parsed, 0, 9999, 1));
-            } catch (Exception e) {
-                // Fallback to text for percentages or empty values
-                c = new JTextField(v);
-            }
-        } else {
-            c = new JTextField(v);
-        }
-        fieldMap.put(k, c); 
-        p.add(c);
+        JComponent c = t.equals("Boolean") ? new JCheckBox("", v.equalsIgnoreCase("true")) :
+                       t.equals("Integer") ? new JSpinner(new SpinnerNumberModel(v.isEmpty()?0:Integer.parseInt(v),0,9999,1)) : new JTextField(v);
+        fieldMap.put(k, c); p.add(c);
     }
 
     private JPanel wrapInScroll(JPanel p) { return new JPanel(new BorderLayout()){{add(p, BorderLayout.NORTH);}}; }
