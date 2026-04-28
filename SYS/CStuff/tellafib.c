@@ -15,7 +15,7 @@ void printArrays(void){
     }
 }
 
-main(){
+int main(){
 
     // double array[ARRLIM];
     // double duparray[ARRLIM];
@@ -32,10 +32,11 @@ main(){
         duparray[i] = array[i] *.05;
 
     }
+    
 
     printArrays();
 
 
-
+    return 1;
 
 }
