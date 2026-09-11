@@ -6,4 +6,10 @@ Github storage of CS programs
 - Systems (SYS)
 - Software Engineering (ENG)
 - Technical Writing (not included)
+## Fall 2026
+- Systems (SYS)
+- Database (BASE)
+- Calc II (CALC2)
+- Theoretical CS (THEORY)
+
 
