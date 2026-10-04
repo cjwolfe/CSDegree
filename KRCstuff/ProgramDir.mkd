@@ -1,0 +1,17 @@
+# List of Programs in this directory
+All programs are from Kernighan and Ritchie's C Programming book
+
+## Chapter 1
+revtemp - Exercise 1-5 - create the temperature conversion program to print the table in reverse order
+
+getcharverify - Exercise 1-6 - verify that the expression `getchar() != EOF` is 0 or 1
+
+printeofchar - Exercise 1-7 - print out the expression `EOF` character value
+
+counthidden - Exercise 1-8 - Write a program to count blanks, tabs, and newlines
+
+removeblanks - Exercise 1-9 - Write a program to copy its input to its output, replacing each string with one or more blanks by a single blank
+
+visiblehidden - Exercise 1-10 - write a program to copy it's input to its output, replacing each tab with `\t`, each backspace with `\b`, and each backslash by `\\`, making tabs and backspaces visible in an unambiguous way.
+
+
