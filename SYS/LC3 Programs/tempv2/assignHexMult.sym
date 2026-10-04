@@ -1,0 +1,26 @@
+//Symbol Name		Page Address
+//----------------	------------
+//	G4_NEWLINE              3072
+//	G4_SAVER1               306E
+//	G4_SAVER2               306F
+//	G4_SAVER3               3070
+//	G4_SAVER7               3071
+//	GD_CHK_LOWER            301A
+//	GD_CHK_UPPER            3012
+//	GD_DONE                 3021
+//	GD_LOOP                 3009
+//	GD_NEG48                3028
+//	GD_NEG65                3029
+//	GD_NEG97                302A
+//	GD_SAVER1               3025
+//	GD_SAVER2               3026
+//	GD_SAVER7               3027
+//	GETH4                   3048
+//	GETHD                   3006
+//	ML_DONE                 303F
+//	ML_LOOP                 303C
+//	ML_SAVER1               3044
+//	ML_SAVER2               3045
+//	ML_SAVER3               3046
+//	ML_SAVER4               3047
+//	MULT                    302B

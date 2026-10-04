@@ -1,0 +1,10 @@
+{
+  "alphabet": ["a", "b"],
+  "states": ["length 0", "length ≥ 1"],
+  "initialState": "length 0",
+  "finalStates": ["length ≥ 1"],
+  "transitions": {
+    "length 0":   { "a": "length ≥ 1", "b": "length ≥ 1" },
+    "length ≥ 1": { "a": "length ≥ 1", "b": "length ≥ 1" }
+  }
+}
