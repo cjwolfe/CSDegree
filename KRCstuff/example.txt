@@ -1,0 +1,5 @@
+this is an example 		file 		 with
+	 text and tabs. there are approximately 10 tabs
+	in	this	document	overall
+and three newlines. \n\n\t
+that is all
