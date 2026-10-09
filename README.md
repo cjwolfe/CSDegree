@@ -1,5 +1,10 @@
 # CSDegree
 Github storage of CS programs
+- Admin - archived class notes that are still useful, random bullshit
+
+## solo_projects
+- krc_stuff - working through c programming language book
+- pythonactive - current python scripts
 
 ## Spring 2026
 - Data Structures and Algorithms (DSA)
@@ -7,9 +12,9 @@ Github storage of CS programs
 - Software Engineering (ENG)
 - Technical Writing (not included)
 ## Fall 2026
-- Systems (SYS)
-- Database (BASE)
-- Calc II (CALC2)
-- Theoretical CS (THEORY)
+- Systems (sys)
+- Database (db)
+- Calc II (calculus)
+- Theoretical CS (theory)
 
 
