@@ -66,16 +66,22 @@ zero 	.fill	x0000
 m0	.fill	x0004
 m1	.fill	x0803
 	.end
-
-
 ```
-
+answer:
+it adds 4 to r2 and uses r1 to track the decrement. because m1 (x0003) is the counter in r1, this will add 4 to r2 three times resulting in the final result of 12 being stored in r2. finally, r2 is stored in the memory location x0000 offsetted from the halt, which is "r0"
 What value will be contained in RESULT after the program runs to completion?
 
 ## 7.6
 
 Our assembler has crashed, and we need your help! Create a symbol table for the following program, and assemble the instructions at labels A, B,and D.
+```asm
+	.orig 	x3000
+	and	r0, r0, #0
+a	ld	r1, e
+	and	r2, r1, #1
 
+
+```
 
 You may assume another module deposits a positive value into E before the module executes. In 15 words or fewer, what does this program do?
 
