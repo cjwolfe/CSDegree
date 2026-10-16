@@ -1,0 +1,14 @@
+//Symbol Name		Page Address
+//----------------	------------
+//	GETALPHA                3019
+//	GET_LOOP                301B
+//	NEG_A                   3035
+//	NEG_LOWER_A             3037
+//	NEG_LOWER_Z             3038
+//	NEG_UNDERSCORE          3034
+//	NEG_Z                   3036
+//	PRINT_CHAR              302E
+//	PROMPT                  3005
+//	RESTORE_REGS            302F
+//	SAVE_R1                 3032
+//	SAVE_R7                 3033

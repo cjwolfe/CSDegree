@@ -1,0 +1,36 @@
+//Symbol Name		Page Address
+//----------------	------------
+//	CC_DIFF                 3067
+//	CC_DONE                 3057
+//	CC_LOOP                 304D
+//	CC_MATCH                3054
+//	CC_NEG_A                3063
+//	CC_NEG_DIFF             3068
+//	CC_NEG_LA               3065
+//	CC_NEG_LZ               3066
+//	CC_NEG_Z                3064
+//	CC_NEXT                 3055
+//	CC_NOT_ALPHA            3047
+//	CC_NOT_UPPER            303D
+//	CC_PREP_DONE            3049
+//	CC_SAVE_R1              305E
+//	CC_SAVE_R2              305F
+//	CC_SAVE_R3              3060
+//	CC_SAVE_R4              3061
+//	CC_SAVE_R5              3062
+//	COUNTCHAR               302D
+//	SWITCHCASE              3003
+//	SW_CHECK_LOWER          3013
+//	SW_DIFF                 302B
+//	SW_DONE                 301E
+//	SW_LOOP                 3007
+//	SW_NEG_A                3027
+//	SW_NEG_DIFF             302C
+//	SW_NEG_LA               3029
+//	SW_NEG_LZ               302A
+//	SW_NEG_Z                3028
+//	SW_NEXT                 301C
+//	SW_SAVE_R0              3023
+//	SW_SAVE_R1              3024
+//	SW_SAVE_R2              3025
+//	SW_SAVE_R3              3026
