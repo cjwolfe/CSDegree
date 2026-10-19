@@ -1,5 +1,6 @@
 # LC3 Exercises from the textbook
 CURRENT: 7.1
+ALL ASSEMBLY IS LC3 ASSEMBLY
 ## 7.1
 An assembly language program contains the following two instructions. The assembler puts the translated version of the LDI instruction that follows onto location x3025 of the object module. After assembly is complete, what is in location x3025?
 
@@ -76,10 +77,19 @@ What value will be contained in RESULT after the program runs to completion?
 Our assembler has crashed, and we need your help! Create a symbol table for the following program, and assemble the instructions at labels A, B,and D.
 ```asm
 	.orig 	x3000
-	and	r0, r0, #0
-a	ld	r1, e
-	and	r2, r1, #1
-
+	and r0, r0, #0
+a	ld  r1, e
+	and r2, r1, #1
+    brp c
+b   add r1, r1, #-1
+c   add r0, r0, r1
+    add r1, r1, #-2
+d   brp c
+    st  r0, f
+    trap    x25
+e   .blkw   1
+f   .blkw   1
+    .end
 
 ```
 
@@ -124,17 +134,73 @@ The LC-3 assembler must be able to convert constants represented in ASCII into t
 ## 7.12
 
 What does the following  LC-3 program do?
-
+```asm
+    .orig   x3000
+    and r5, r5, #0
+    and r3, r3, #0
+    add r3, r3, #8
+    ldi r1, a
+    add r2, r1, #0
+ag  add r2, r2, r2
+    add r3, r3, #-1
+    brnp    ag
+    ld  r4, b
+    and r1, r1, r4
+    not r1, r1
+    add r1, r1, #1
+    add r2, r2, r1
+    brnp    no
+    add r5, r5, #1
+no  halt
+b   .fill   xff00
+a   .fill   x4000
+    .end
+```
+answer
 
 ## 7.13
 
 The following program adds the values stored in memory locations A, B, and C and stores the result into memory. There are two errors in the code. For each, describe the error and indicate whether it will be detected at assembly time or at run time.
+```asm
+    .orig   x3000
+one ld  r0, a
+    add r1, r1, r0
+two ld  r0, b
+    add r1, r1, r0
+three   ld  r0, c
+    add r1, r1, r0
+    st  r1, sum
+    trap    x25
+a   .fill   x0001
+b   .fill   x0002
+c   .fill   x0003
+d   .fill   x0004
+    .end
+```
+answer
 
 
 ## 7.14
 
  Assemble the following program:
-
+```asm
+    .orig   x3000
+    ld  r0, numbers
+    ld  r2, mask
+loop    ldr r1, r0, #0
+    brz done
+    and r5, r1, r2
+    brz l1
+    brnzp   next
+l1  add r1, r1, r1
+    str r1, r0, #0
+next    add r0, r0, #1
+    brnzp   loop
+done    halt
+numbers .fill   x4000
+mask    .fill   x8000
+    .end
+```
 
 The programmer intended the program to output a % to the monitor and then halt. Unfortunately, the programmer got confused about the semantics of each of the opcodes (i.e., exactly what function is carried out by the LC-3 in response to each opcode). Replace exactly one opcode in this program with the correct opcode to make the program work as intended.
 
