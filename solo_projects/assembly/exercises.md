@@ -46,7 +46,7 @@ save2 .fill x0000
 ```
 answer
 save3 - 14 (x301c + 14) 
-save2 - 15 (x301c _ 15)
+save2 - 15 (x301c + 15)
 ## 7.5
 
  What does the following program do?
