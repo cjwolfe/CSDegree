@@ -120,10 +120,18 @@ Show the contents of the register file (in hexadecimal) when the breakpoint is e
 
 What is the purpose of the .END pseudo-op? How does it differ from the HALT instruction?
 
+answer
+the .end pseudo-op is a message to the compiler to finish compiling the program, whereas the halt instruction is copied to the finished program in the form of a hex code. The LC3 uses the halt operation, but the lc3 does not ever see the .end pseudo-op
 ## 7.10
 
 The following program fragment has an error in it. Identify the error and explain how to fix it.
-
+```asm
+	add	r3, r3, #30
+	st	r3, a
+	halt
+a	.fill	#0
+```
+answer
 
 Will this error be detected when this code is assembled or when this code is run on the LC-3?
 
@@ -209,7 +217,12 @@ The original program from part a was executed. However, execution exhibited some
 ## 7.15
 
 The following is an LC-3 program that performs a function. Assume a sequence of integers is stored in consecutive memory locations, one integer per memory location, starting at the location x4000. The sequence terminates with the value x0000. What does the following program do?
+```asm
+	.orig	x3000
+	ld	r0, numbers
 
+
+```
 
 ## 7.16
 
