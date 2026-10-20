@@ -232,14 +232,46 @@ The following is an LC-3 program that performs a function. Assume a sequence of 
 ```asm
 	.orig	x3000
 	ld	r0, numbers
-
-
+	ld	r2, mask
+loop	ldr	r1, r0, #0
+	brz	done
+	and	r5, f1, r2
+	brz	l1
+	brnzp	next
+l1	add	r1, r1, r1
+	str	r1, r0, #0
+next	add	r0, r0, #1
+	brnzp	loop
+done	halt
+numbers	.fill	x4000
+mask	.fill	x8000
+	.end
 ```
+answer
+
 
 ## 7.16
 
 Assume a sequence of nonnegative integers is stored in consecutive memory locations, one integer per memory location, starting at location x4000. Each integer has a value between 0 and 30,000 (decimal). The sequence terminates with the value ‒1 (i.e., xFFFF).
-
+```asm
+	.orig	x3000
+	and	r4, r4, #0
+	and	r3, r3, #0
+	ld	r0, numbers
+loop	ldr	r1, r0, #0
+	not	r2, r1
+	brz	done
+	and	r2, r1 #1
+	brz	l1
+	add	r4, r4, #1
+	brnzp	next
+l1	add	r3, r3, #1
+next	add	r0, r0, #1
+	brnzp	loop
+done	trap	x25
+numbers	.fill	x4000
+	.end
+```
  
 What does the following program do?
 
@@ -251,22 +283,89 @@ Suppose you write two separate assembly language modules that you expect to be c
 ## 7.18
 
 The following LC-3 program compares two character strings of the same length. The source strings are in the .STRINGZ form. The first string starts at memory location x4000, and the second string starts at memory location x4100. If the strings are the same, the program terminates with the value 1 in R5. Insert instructions at (a), (b), and (c) that will complete the program.
-
+```asm
+	.orig	x3000
+	ld	r1, first
+	ld	r2, second
+	and	r0, r0, #0
+loop	------	a
+	ldr	r4, r2, #0
+	brz	next
+	add	r1, r1, #1
+	add	r2, r2, #1
+	------	b
+	------	c
+	add	r3, r3, r4
+	brz	loop
+	and	r5, r5, #0
+	brnzp	done
+next	and	r5, r5, #0
+	add	r5, r5, #1
+done	trap	x25
+first	.fill	x4000
+second	.fill	x4100
+	.end
+```
+answer
 
 ## 7.19
 
 When the following LC-3  program is executed, how many times will the instruction at the memory address labeled LOOP execute?
-
+```asm
+	.orig	x3005
+	lea	r2, data
+	ldr	r4, r2, #0
+loop	add	r4, r4, #-3
+	brzp	loop
+	trap	x25
+data	.fill	x000B
+	.end
+```
+answer
 
 ## 7.20
 
 LC-3 assembly language modules (a) and (b) have been written by different programmers to store x0015 into memory location x4000. What is fundamentally different about their approaches?
-
+```asm
+;(a)
+	.orig	x5000
+	and	r0, r0, #0
+	add	r0, r0, #15
+	add	r0, r0, #6
+	sti	r0, ptr
+	halt
+ptr	.fill	x4000
+	.end
+;(b)
+	.orig	x4000
+	.fill	x0015
+	.end
+```
+answer
 
 ## 7.21
 
 Assemble the following LC-3 assembly language program.
-
+```asm
+	.orig	x3000
+	and	r0, r0, #0
+	add	r2, r0, #10
+	ld	r1, mask
+	ld	r3, ptr1
+loop	ldr	r4, r3, #0
+	and	r4, r4, r1
+	brz	next
+	add	r0, r0, #1
+next	add	r3, r3, #1
+	add	r2, r2, #-1
+	brp	loop
+	sti	r0, ptr2
+	halt
+mask	.fill	x8000
+ptr1	.fill	x4000
+ptr2	.fill	x5000
+	.end
+```
 
 What does the program do (in no more than 20 words)?
 
