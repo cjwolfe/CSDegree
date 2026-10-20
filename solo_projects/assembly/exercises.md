@@ -16,11 +16,13 @@ An LC-3 assembly language program contains the instruction:
 ASCII LD R1, ASCII
 
 The symbol table entry for ASCII is x4F08. If this instruction is executed during the running of the program, what will be contained in R1 immediately after the instruction is executed?
+
 answer
 x4F08
 ## 7.3
 
 What is the problem with using the string AND as a label?
+
 answer
 the string AND is already an opcode and so using it can cause confusion between the label, the opcode, and any operands. you could feasibly have an instruction like label;and opcode; and; operands r1, r2, r1. alternatively you could feasibly have an instruction like label; none opcode; and operands; r1, r2, and
 and additionally there's plenty of confusion for the compiler for this exact reason.
@@ -45,6 +47,7 @@ save3 .fill x0000
 save2 .fill x0000
 .end
 ```
+
 answer
 save3 - 14 (x301c + 14) 
 save2 - 15 (x301c + 15)
@@ -68,7 +71,8 @@ m0	.fill	x0004
 m1	.fill	x0803
 	.end
 ```
-answer:
+
+answer
 it adds 4 to r2 and uses r1 to track the decrement. because m1 (x0003) is the counter in r1, this will add 4 to r2 three times resulting in the final result of 12 being stored in r2. finally, r2 is stored in the memory location x0000 offsetted from the halt, which is "r0"
 What value will be contained in RESULT after the program runs to completion?
 
@@ -94,6 +98,13 @@ f   .blkw   1
 ```
 
 You may assume another module deposits a positive value into E before the module executes. In 15 words or fewer, what does this program do?
+
+answer
+and r1 with r2 and #1
+brp c?
+r1
+r2
+
 
 ## 7.7
 
@@ -165,6 +176,7 @@ a   .fill   x4000
     .end
 ```
 answer
+
 
 ## 7.13
 
