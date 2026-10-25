@@ -1,5 +1,5 @@
 # LC3 Exercises from the textbook
-CURRENT: 7.1
+CURRENT: 7.10
 ALL ASSEMBLY IS LC3 ASSEMBLY
 ## 7.1
 An assembly language program contains the following two instructions. The assembler puts the translated version of the LDI instruction that follows onto location x3025 of the object module. After assembly is complete, what is in location x3025?
