@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <bits.h>
+#include "bits.h"
 
 int main(void){
 	int p1 = 0x045f3e47;
