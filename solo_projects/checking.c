@@ -1,84 +1,60 @@
 #include <stdio.h>
-void question1(){
-	int x = 5;
-	while(x == 5)
-	{
-		x ++;
-	}
+#include <string.h>
+void swap(int a, int b);
 
-	printf("%d",x);
-}
-void question2(){
-	//prints 4
-	int i = 3;
-	if(i == 2)
-		printf("%d",i);
-	else
-		printf("%d", i+1);
+char * foo1(char str[])
+{
+		int n = strlen(str);
+		int i;
+		for (i = 0; i < n; i++, n--)
+		{
+		str[i] = str[n-1];
+		}
+		return str;
 }
 
-void question3(){
-	// prints 0
-	int count = 0;
-	int i = 0;
-	while(i < count)
-		i++;
-	printf("%d\n",i);
+char * foo2(char str[])
+{
+		int n = strlen(str);
+		int i;
+		for (i = 0; i < n; i++, n--)
+		{
+		char c = str[i];
+		str[i] = str[n-1];
+		str[n-1] = c;
+		}
+		return str;
 }
 
-void question4(){
-	// prints 3
-	int count = 3;
-	int i;
-	//for( i = 0; i < count; i++);
-	do{
-		i++;
-	} while (i<count);
-	printf("%d\n",i);
-}
-
-void question45(){
-	//prints 0
-	int count = 0;
-	int i = 0;
-	for(i = 0; i < count; i++)
-		i++;
-	printf("%d\n",i);
-}
-void question5(){
-	// prints WXYZ
-	char i;
-	for(i = 'A'; i <= 'Z'; i++)
-	{
-		if (i < 'W') continue;
-		printf("%c",i);
-	}
-}
-void question6(){
-	//prints ABC
-	int score = 95;
-	int grade = score > 90? 1:score > 80? 2: 3;
-	switch (grade){
-		case 1:
-			printf("A");
-		case 2:
-			printf("B");
-		default:
-			printf("C");
-	}
+char * foo3(char str[])
+{
+		int n = strlen(str);
+		int i;
+		for (i = 0; i < n; i++)
+		{
+		if (i < n/2)
+		str[i] = str[n-1];
+		}
+		return str;
 }
 int main(){
-	
-	//question1();
-	//printf("\n");
-	question2();
-	//printf("\n");
-	//question3();
-	//printf("\n");
-	//question4();
-	//question45();
-	//printf("\n");
-	//question5();
-	//question6();
+	char str[] = "abcdefg";
+	char *resultStr = foo1(str);
+	printf("foo 1: %s\n", resultStr);	
+	resultStr = foo2(str);
+	printf("foo 2: %s\n", resultStr);	
+	resultStr = foo3(str);
+	printf("foo 3: %s\n", resultStr);	
+	int n = 3, m = 4;
+	swap (n,m);
+	printf("n = %d, m = %d\n", n, m);
+
 	return 0;
+
+}
+
+void swap(int a, int b){
+		int t = a;
+		a = b;
+		b = t;
 }
