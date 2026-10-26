@@ -1,7 +1,5 @@
 #include <stdio.h>
-#ifndef BITS_H
-#define BITS_H
-#include "bits.h"
+#include <cstdio>
 
 int highLow(int hi,int lo){
 	// three lines
@@ -10,11 +8,13 @@ int highLow(int hi,int lo){
 	int ans2 = lo << 4;
 	return ans << 4 | ans2 >> 4;	
 }
+
 int countPairs(int pair){
 	//nine lines
 	// this is also junk
 	return pair--;
 }
+
 void printDashOct(int input){
 	//thirteen lines
 	// this is just junk
@@ -26,4 +26,4 @@ void printDashOct(int input){
 	}
 
 }
-#endif /* BITS_H */
+
