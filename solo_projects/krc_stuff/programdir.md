@@ -16,9 +16,9 @@ All programs are from Kernighan and Ritchie's C Programming book
 
 - [x] Exercise 1-12 - oneword - Write a program that prints its input one word per line
 
-- [ ] Exercise 1-13 - histogramwordlen - Write a program to print a histogram of the lengths of words in its input. It is easy to draw the histogram with the bars horizontal: a vertical orientation is more challenging
+- [x] Exercise 1-13 - histogramwordlen - Write a program to print a histogram of the lengths of words in its input. It is easy to draw the histogram with the bars horizontal: a vertical orientation is more challenging
 
-- [ ] Exercise 1-14 - histogramfreq - Write a program to print a histogram of the frequencies of different characters in its input.
+- [x] Exercise 1-14 - histogramfreq - Write a program to print a histogram of the frequencies of different characters in its input.
 
 - [ ] Exercise 1-15 - tempfunc - rewrite the temperature conversion program of 1.2 to use a function for conversion
 
