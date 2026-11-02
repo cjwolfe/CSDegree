@@ -1,7 +1,8 @@
 # List of Programs in this directory
 All programs are from Kernighan and Ritchie's C Programming book
 
-## Chapter 1 - A Tutorial introduction
+CHAPTER 1: A TUTORIAL INTRODUCTION
+-------------------------------------------------------------------------------
 - [x] Exercise 1-5 - revtemp -  create the temperature conversion program to print the table in reverse order
 
 - [ ] Exercise 1-6 - getcharverify - verify that the expression `getchar() != EOF` is 0 or 1
@@ -21,6 +22,7 @@ All programs are from Kernighan and Ritchie's C Programming book
 - [x] Exercise 1-14 - histogramfreq - Write a program to print a histogram of the frequencies of different characters in its input.
 
 - [ ] Exercise 1-15 - tempfunc - rewrite the temperature conversion program of 1.2 to use a function for conversion
+Note: had some issues with this one. TODO: return and fix
 
 - [ ] Exercise 1-16 - longestlinearbit - revise the main routine of the longest-line program so it will correctly print the length of arbitrarily long input lines, and as much as possible of the text.
 
