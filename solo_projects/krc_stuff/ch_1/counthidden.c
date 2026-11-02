@@ -1,21 +1,17 @@
 #include <stdio.h>
 
-FILE *fptr;
-FILE *fptr2;
-/* count characters in input, 1st version*/
-int counttabs(FILE &f){
-	int ans = 0;	
-	int len = sizeof(f);
-
-
-}
 int main(){
 	int c;
-	 	
-	fptr = fopen("example.txt","r");
-	
-	fptr2 = fopen("normalexample.txt","r");
+	int t = 0, s = 0;
+	while((c = getchar()) != EOF){
+	if(c == '\t'){
+			t++;
+	} else if (c == ' '){
+			s++;
+	}
 
-
-
+	}
+	printf("The number of tabs and spaces are %i and %i respectively\n",t,s);
+	printf("The EOF character is %d",EOF);
+	return 0;
 }
