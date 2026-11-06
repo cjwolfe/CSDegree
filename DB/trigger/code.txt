@@ -1,0 +1,51 @@
+
+drop table if exists inventory;
+drop table if exists books;
+
+
+create table books (
+		book_id int auto_increment primary key,
+		title varchar(100),
+		author varchar(50),
+		price decimal(10,2)
+);
+
+create table inventory (
+		inventory_id int auto_increment primary key,
+		book_id int,
+		stock int
+);
+
+alter table inventory
+add constraint book_ids
+foreign key (book_id) references books(book_id);
+
+delimiter //
+create trigger after_book_insert
+after insert on books
+for each row
+begin
+    insert into inventory (book_id, stock)
+    values (new.book_id, 0);
+end //
+create trigger after_book_delete
+after delete on books
+for each row
+begin
+    delete from inventory
+    where book_id = old.book_id;
+end //
+create trigger before_inventory_insert
+before insert on inventory
+for each row
+begin
+    if exists (select 1 from inventory where book_id = new.book_id) then
+        signal sqlstate '45000'
+        set message_text = 'This book already exists. Please update the stock instead.';
+    end if;
+end //
+create trigger before_inventory_update
+before update on inventory
+for each row
+begin
+    if new.stock < 0 then

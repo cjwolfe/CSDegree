@@ -1,3 +1,4 @@
+/*
 -- Ex1
 DROP PROCEDURE IF EXISTS procedure_name;
 
@@ -25,8 +26,25 @@ set @val = 5;
 select @val as input;
 call procedure_name(@val);
 select @val as result;
+*/
+-- Ex 2 Data table
+drop table if exists grade;
+create table grade(
+		student varchar(20) primary key,
+		quiz int,
+		exam int
+);
+insert into grade (student, quiz, exam)
+values 
+		("Tom", 95, 85),
+		("Jerry", 87, 93),
+		("Mickey", null, 88),
+		("Minnie", 91, null)
+;
 
+select * from grade;
 -- Ex2
+
 drop procedure if exists ex_2;
 
 delimiter $$
