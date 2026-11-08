@@ -24,9 +24,9 @@ CHAPTER 1: A TUTORIAL INTRODUCTION
 - [x] Exercise 1-15 - tempfunc - rewrite the temperature conversion program of 1.2 to use a function for conversion
 Note: had some issues with this one. TODO: return and fix
 
-- [ ] Exercise 1-16 - longestlinearbit - revise the main routine of the longest-line program so it will correctly print the length of arbitrarily long input lines, and as much as possible of the text.
+- [x] Exercise 1-16 - longestlinearbit - revise the main routine of the longest-line program so it will correctly print the length of arbitrarily long input lines, and as much as possible of the text.
 
-- [ ] Exercise 1-17 - printall80 - Write a program to print all input lines that are longer than 80 characters
+- [x] Exercise 1-17 - printall80 - Write a program to print all input lines that are longer than 80 characters
 
 - [ ] Exercise 1-18 - removetrailing - Write a program to remove trailing blanks and tabs from each line of input, and to delete entirely blank lines
 
