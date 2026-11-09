@@ -74,6 +74,36 @@ add constraint fk_hangar
 foreign key (hangar_no)
 references hangar(hangar_no);
 
+delimiter $$
+create trigger calc_next_mx_1
+before insert on maintenance_log
+for each row
+begin
+    if NEW.projected_next_mx_hrs is null then
+        set NEW.projected_next_mx_hrs = NEW.current_acft_hrs + 100.0;
+    end if;
+end$$
+delimiter ;
+
+delimiter $$
+create trigger check_quals_mx
+before insert on maintenance_log
+for each row
+begin
+    declare v_owned_quals varchar(40);
+
+    select quals_owned into v_owned_quals
+    from personnel
+    where technician_id = NEW.mx_technician;
+
+    -- verify tech qual matches the required task qual
+    if NEW.quals_reqd is not null and (v_owned_quals is null or v_owned_quals not like concat('%', NEW.quals_reqd, '%')) then
+        signal sqlstate '45000'
+        set message_text = 'Error: Assigned technician does not hold the required quals for this maintenance item.';
+    end if;
+end$$
+delimiter ;
+
 -- adding in some sample data
 insert into hangar(hangar_no, hangar_bay)
 values
@@ -96,6 +126,7 @@ values
 insert into fuels(fueling_time, tail_number, liters_fueled, technician_id)
 values
 		("2026-11-08 22:00:00", "89-1690", 304.56, "011899988");
+
 -- display sample data
 select * from aircraft;
 select * from hangar;
