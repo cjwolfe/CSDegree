@@ -3,6 +3,9 @@
 //and the following line will automatically bring them
 //into main.cc.
 #include "structures.h"
+#include <stdio.h>
+#include <string.h>
+#include <structures.h>
 
 int main()
 {
