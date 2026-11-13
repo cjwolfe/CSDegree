@@ -7,9 +7,10 @@ CREATE TABLE wolfecj1.bank_account (
     balance INT UNSIGNED
 
 )
-ENGINE=InnoDB
-DEFAULT CHARSET=utf8mb4
-COLLATE=utf8mb4_0900_ai_ci;
+-- ENGINE=InnoDB
+-- DEFAULT CHARSET=utf8mb4
+-- COLLATE=utf8mb4_0900_ai_ci
+;
 
 DROP TABLE IF EXISTS order_record;
 CREATE TABLE order_record(
