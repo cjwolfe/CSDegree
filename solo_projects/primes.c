@@ -24,6 +24,12 @@ int checkprime(int pr){
 		// (n is approaching the sqrt of the number)
 		//
 		return -1;
+		// sieve of erasthemis v1
+		// pass a number and have access to a global list of primes (the sieve)
+		// check if the number (prompted by recursion) is in the sieve
+		// check each number in the sieve % by the passed number
+		//
+		//
 }
 char* isPrime(int i){
 		return "yes";

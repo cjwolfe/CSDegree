@@ -5,7 +5,11 @@
 #include "structures.h"
 #include <stdio.h>
 #include <string.h>
-#include <structures.h>
+//#include <structures.h>
+//person_t getOnePerson(person_t in);
+//void printOnePerson(person_t input);
+//person_t getPeople(person_t input[], int num);
+//void printPeople(person_t *in, int num);
 
 int main()
 {
@@ -29,3 +33,15 @@ int main()
 	return 0;
 }
 
+person_t getOnePerson(person_t input){
+		return input;
+}
+void printOnePerson(person_t input){
+		printf("this is sample output");
+}
+person_t getPeople(person_t input[], int num){
+		return *input;
+}
+void printPeople(person_t p, int num){
+		printf("this is more sample output");
+}
