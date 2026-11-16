@@ -20,7 +20,6 @@ create table aircraft(
 
 );
 
-
 create table hangar (
 		hangar_no int primary key,
 		hangar_bay varchar(10)
@@ -104,6 +103,34 @@ begin
 end$$
 delimiter ;
 
+-- fuel_acft procedure 
+delimiter //
+create procedure fuel_acft(
+		in t_num varchar(30), 
+		in f_time datetime, 
+		in l_fueled float(10,3),
+		in t_id varchar(20)
+		)
+	begin
+		start transaction;
+		-- input data into fuels
+		insert into fuels(
+				tail_number,
+				fueling_time,
+				liters_fueled,
+				technician_id
+		)	values(
+				t_num,
+				f_time,
+				l_fueled,
+				t_id
+		);
+		-- if fails, does not commit
+		commit;
+	end//
+
+delimiter ;
+
 -- adding in some sample data
 insert into hangar(hangar_no, hangar_bay)
 values
@@ -127,9 +154,26 @@ insert into fuels(fueling_time, tail_number, liters_fueled, technician_id)
 values
 		("2026-11-08 22:00:00", "89-1690", 304.56, "011899988");
 
+insert into fuels(
+		tail_number, fueling_time, liters_fueled, technician_id
+)
+values
+		("89-0487", "2026-11-15 20:00:00", 303.22, "123456789");
 -- display sample data
-select * from aircraft;
-select * from hangar;
-select * from maintenance_log;
-select * from personnel;
+-- select * from aircraft;
+-- select * from hangar;
+-- select * from maintenance_log;
+-- select * from personnel;
+-- select * from fuels;
+
+
+-- testing fuel_acft transaction
+select "Transaction testing" as "init";
+
 select * from fuels;
+select "Calling fuel_acft" as "fuel status";
+
+call fuel_acft("89-0487", "2026-11-15 20:45:00", 303.22, "123456789");
+
+select * from fuels;
+
