@@ -1,0 +1,7 @@
+#separator:Semicolon
+#html:true
+The naive membership algorithm tries every computation of a PDA on w. What can make it run forever?; Transitions ($\epsilon$, A, W): They read no letter, so a computation can go on without ever reaching the end of w.
+Which method decides membership for every CFG in time polynomial in |w|?; The CYK algorithm
+Which variables does the emptiness algorithm mark for S->AB|aA,A->aA,B->b?; Only B, so the language is empty
+For regular languages, we decide L_1=L_2 by testing whether L_1$\cap$!L_2 and L_2$\cap$L_1 are empty. Why doesn't this work for CFLs?; L_1$\cap$ !L_2 need not be a CFL, so there may be no grammar or PDA to test emptiness on.
+
