@@ -48,7 +48,7 @@ begin
 				insert into order_record 
 						(account_no, amount, order_type)
 				values
-					(	a, -m, t);
+					(a, -m, t);
 				-- select 'debit transaction' as status_message;
 		elseif t like 'credit' then
 				insert into order_record
