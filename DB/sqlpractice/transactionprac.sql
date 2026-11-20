@@ -88,3 +88,5 @@ call new_order(1,-800,'debit');
 select "test data input" as "tested";
 
 SELECT * FROM bank_account;
+
+
