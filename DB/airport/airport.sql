@@ -175,5 +175,8 @@ select "Calling fuel_acft" as "fuel status";
 
 call fuel_acft("89-0487", "2026-11-15 20:45:00", 303.22, "123456789");
 
+call fuel_acft("89-0487", "2026-11-19 13:22:00", 220.42, "123456789"); 
 select * from fuels;
+
+
 
